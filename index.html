@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <h2>{{hello}}</h2>
+        <p>Товар в корзине {{countProduct}}</p>
+        <button @click="addProduct">Купить</button>
+        <div v-for="product in cart" :key="product.id" class="cartBox">
+            <p>Name: {{product.name}}</p>
+            <button @click="addProduct(product)">{{product.buttonText}}</button>
+        </div>
+        <button @click="isTrue=true">Мне уже исплнилось 14лет</button>
+        <button @click="isTrue=false">Мне еще не исплнилось 14лет</button>
+        <div v-if="isTrue">14+ content</div>
+        <div v-else>Доступ закрыт</div><br />
+        <button @click="showContent = !showContent">Показать еще</button><br>
+        <div v-if="showContent">Еще конткнт</div>
+
+        <button @click="getRandomNumber">Сгенерировать число</button><br>
+        <div>{{randomNumber}}</div><br>
+        <div>{{getNumberInfo}}</div> -->
+        <button @click="reversText">{{buttonText}}</button>
+        <ul>
+            <li v-for="(item, index) in items" :key="index" @click="removeItem(index)">
+                {{ item }}
+            </li>
+        </ul>
+        <button @click="addItem">Добавить</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                // hello:'Hello',
+                // countProduct: 0,
+                // cart:[
+                //     {id: 1, name: 'Product1', incart: false, buttonText: 'Bay'},
+                //     {id: 2, name: 'Product2', incart: false, buttonText: 'Bay'},
+                //     {id: 3, name: 'Product3', incart: false, buttonText: 'Bay'},
+                //     {id: 4, name: 'Product4', incart: false, buttonText: 'Bay'} 
+                    
+                // ],
+                // isTrue: false,
+                // showContent: false,
+                // numberInfo: 'number',
+                // randomNumber: 0,
+                buttonText: 'Перевернуть',
+                items: ['Элемент 1', 'Элемент 2', 'Элемент 3'],
+                
+            },
+            methods: {
+                // addProduct(product) {
+                //     if (!product.inCart) {
+                //         product.inCart = true;
+                //         this.countProduct++;
+                //         product.buttonText = 'Товар в корзине!'
+                //     }
+                    
+                // },
+
+                // getRandomNumber() {
+                //     this.randomNumber = Math.floor(Math.random()*10);
+                // },
+                reversText() {
+                    this.buttonText = this.buttonText.split('').reverse().join('');
+                },
+                addItem() {
+                    this.items.push('Новый элемент списка!');
+                },
+                removeItem(index) {
+                    this.items.splice(index, 1);
+                }
+            },
+            // computed: {
+            //     getNumberInfo() {
+            //         if (this.randomNumber < 5) {
+            //             return "Число меньше 5"
+            //         } else if (this.randomNumber === 10) {
+            //            return "Число равно 10" 
+            //         }else {
+            //             return "Число больше или ровно 5 и меньше или ровно 9"
+            //         }
+            //     }
+            // },
+        })
+    </script>
+</body>
+</html>
